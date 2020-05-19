@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const MONGOURI = "mongodb+srv://" + process.env.MONGODB_USERNAME + ":" + process.env.MONGODB_PASSWORD + "@mongoclustercs428-pijzh.mongodb.net/free_food?retryWrites=true&w=majority";
+const MONGOURI = "mongodb+srv://" + process.env.MONGODB_USERNAME + ":" + process.env.MONGODB_PASSWORD + "@cluster0-xwfi7.mongodb.net/free_food?retryWrites=true&w=majority";
 
 /**
  * Establish mongodb connection and make it available to app.
