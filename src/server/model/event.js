@@ -41,6 +41,10 @@ const mongoose = require("mongoose"),
         "category": {
             "type": String,
             "required": false
+        },
+        "points": {
+            "type": Number,
+            "required": true
         }
     });
 

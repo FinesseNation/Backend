@@ -71,6 +71,8 @@ router.post('/signup', userController.signup);
  */
 router.post('/login', userController.login);
 
+router.post('/setVotes', userController.setVotes);
+
 /**
  * @swagger
  * /api/user/changeNotifications:

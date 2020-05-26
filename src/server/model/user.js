@@ -24,6 +24,14 @@ const mongoose = require("mongoose"),
         "notifications": {
             "type": Boolean,
             "default" : true
+        },
+        "upvoted": {
+            "type": Array,
+            "default" : []
+        },
+        "downvoted": {
+            "type": Array,
+            "default" : []
         }
     });
 

@@ -61,7 +61,7 @@ exports.updateEvent = [
             });
         }
 
-        const {eventId, eventTitle, emailId, school, description, location, isActive, image, postedTime, duration, category} = req.body;
+        const {eventId, eventTitle, emailId, school, description, location, isActive, image, postedTime, duration, category, points} = req.body;
 
         try {
             //Treating eventTitle as the unique ID
@@ -76,6 +76,7 @@ exports.updateEvent = [
             currEvent.postedTime = postedTime;
             currEvent.duration = duration;
             currEvent.category = category;
+            currEvent.points = points;
             await currEvent.save(function(err) {
                 if(err) { return next(err); }
                 let logMessage = "Success: updated event _id = " + eventId;

@@ -28,6 +28,8 @@ exports.signup = [
         const school = dotSplit[0];
         const points = 0;
         const notifications = true;
+        const upvoted = [];
+        const downvoted = [];
 
         let user = await User.findOne({emailId});
         if (user) {
@@ -42,7 +44,9 @@ exports.signup = [
             password,
             school,
             points,
-            notifications
+            notifications,
+            upvoted,
+            downvoted
         });
 
         const salt = await bcrypt.genSalt(10);
@@ -147,6 +151,41 @@ exports.getCurrentUser = [
             res.status(200).json(user);
         }
 ]
+
+exports.setVotes = [
+    // Validate fields
+    body("emailId", "Please enter a valid emailId").isEmail().trim(),
+
+    async (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({
+                errors: errors.array()
+            });
+        }
+
+        const {emailId, upvoted, downvoted} = req.body;
+
+        try {
+            console.log('trying to find ' + emailId);
+            let user = await User.findOne({"emailId": emailId});
+            user.upvoted = upvoted;
+            user.downvoted = downvoted;
+            
+            await user.save(function(err) {
+                if(err) { console.log('errorrrrrrr = '+err); return next(err); }
+                let logMessage = "Success: set votes for user = " + emailId;
+                console.log(logMessage);
+                res.status(200).json({
+                    message: logMessage
+                });
+            });
+        } catch(err) {
+            console.log("Error: unable to set votes: " + err);
+            res.status(400).end();
+        }
+    }
+];
 
 exports.changeNotifications = [
     // Validate fields
