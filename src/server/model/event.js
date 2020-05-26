@@ -45,6 +45,10 @@ const mongoose = require("mongoose"),
         "points": {
             "type": Number,
             "required": true
+        },
+        "numComments": {
+            "type": Number,
+            "required": true
         }
     });
 

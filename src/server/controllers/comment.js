@@ -1,5 +1,6 @@
 const {body, validationResult} = require("express-validator");
 const Comment = require("../model/comment");
+const Event = require("../model/event");
 
 exports.getComments = function(req, res) {
     let eventId = req.params.eventId;
@@ -32,11 +33,21 @@ exports.addComment = [
             "comment": comment,
             "postedTime":postedTime
         });
+        var logMessage = "";
         await newComment.save(function(err) {
             if(err) { return next(err); }
-            let logMessage = "Success: added new comment = " + comment;
-            console.log(logMessage);
-            res.send(logMessage);
+            logMessage += "Success: added new comment = " + comment;
+        });
+
+        let currEvent = await Event.findOne({"_id": eventId});
+        currEvent.numComments++;
+        await currEvent.save(function(err) {
+            if(err) { return next(err); }
+            else {
+                logMessage += "\nSuccess: updated event _id = " + eventId;
+                console.log(logMessage);
+                res.send(logMessage);
+            }
         });
     }
 ];
