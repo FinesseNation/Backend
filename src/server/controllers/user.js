@@ -173,7 +173,7 @@ exports.setVotes = [
             user.downvoted = downvoted;
             
             await user.save(function(err) {
-                if(err) { console.log('errorrrrrrr = '+err); return next(err); }
+                if(err) { console.log('error saving user = '+err); return next(err); }
                 let logMessage = "Success: set votes for user = " + emailId;
                 console.log(logMessage);
                 res.status(200).json({

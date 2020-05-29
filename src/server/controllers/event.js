@@ -1,5 +1,6 @@
 const {body, validationResult} = require("express-validator");
 const Event = require("../model/event");
+const User = require("../model/user");
 
 exports.getEvents = function(req, res) {
     Event.find({}).exec(function(err, listEvents) {
@@ -37,11 +38,20 @@ exports.addEvent = [
             "points": points,
             "numComments": numComments
         });
+        let newId = newEvent._id.toString();
         await newEvent.save(function(err) {
             if(err) { return next(err); }
             let logMessage = "Success: added new event = " + eventTitle;
             console.log(logMessage);
-            res.send(logMessage);
+            res.send({msg: logMessage, id: newId});
+        });
+        console.log('newId = ' + newId);
+        let user = await User.findOne({"emailId": emailId});
+        user.upvoted.push(newId);
+        await user.save(function(err) {
+            if(err) { console.log('error adding post to favorites = '+err); return next(err); }
+            let logMessage = "Success: set votes for user = " + emailId;
+            console.log(logMessage);
         });
     }
 ];
