@@ -24,7 +24,7 @@ exports.addEvent = [
             });
         }
         const {eventTitle, emailId, school, description, location, isActive, image, postedTime, duration, category, points, numComments} = req.body;
-        let newEvent = new Event({
+        let eventjson = {
             "eventTitle": eventTitle,
             "emailId": emailId,
             "school": school,
@@ -37,7 +37,11 @@ exports.addEvent = [
             "category": category,
             "points": points,
             "numComments": numComments
-        });
+        };
+        if (emailId == 'test') {
+            eventjson.createdAt = new Date();
+        }
+        let newEvent = new Event(eventjson);
         let newId = newEvent._id.toString();
         await newEvent.save(function(err) {
             if(err) { return next(err); }

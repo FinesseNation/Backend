@@ -27,12 +27,16 @@ exports.addComment = [
             });
         }
         const {eventId, emailId, comment, postedTime} = req.body;
-        let newComment = new Comment({
+        let commentjson = {
             "eventId": eventId,
             "emailId": emailId,
             "comment": comment,
             "postedTime":postedTime
-        });
+        };
+        if (emailId == 'test') {
+            commentjson.createdAt = new Date();
+        }
+        let newComment = new Comment();
         var logMessage = "";
         await newComment.save(function(err) {
             if(err) { return next(err); }
