@@ -31,12 +31,12 @@ exports.addComment = [
             "eventId": eventId,
             "emailId": emailId,
             "comment": comment,
-            "postedTime":postedTime
+            "postedTime": postedTime
         };
         if (emailId == 'test') {
             commentjson.createdAt = new Date();
         }
-        let newComment = new Comment();
+        let newComment = new Comment(commentjson);
         var logMessage = "";
         await newComment.save(function(err) {
             if(err) { return next(err); }
