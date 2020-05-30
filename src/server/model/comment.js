@@ -18,6 +18,10 @@ const mongoose = require("mongoose"),
         "postedTime": {
             "type": String,
             "required": true
+        },
+        "createdAt": {
+            "type": Date,
+            "required": false
         }
     });
 
