@@ -49,6 +49,10 @@ const mongoose = require("mongoose"),
         "numComments": {
             "type": Number,
             "required": true
+        },
+        "createdAt": {
+            "type": Date,
+            "required": false
         }
     });
 
