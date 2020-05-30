@@ -312,9 +312,8 @@ exports.generatePasswordResetLink = [
             html: '<p>Click <a href="https://finesse-nation.herokuapp.com/admin/users?email=' + emailId + '&token=' + token + '">here</a> to reset your password</p>'
         };
 
-        transport.sendMail(message, function(err, info) {
-            if(err) { return next(err); }
-            console.log(info);
+        transport.sendMail(message, function(err) {
+            if(err) { console.log(err); return next(err); }
             res.status(200).json({
                 msg: "Password reset token sent to user email",
                 token: token

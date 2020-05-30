@@ -45,7 +45,6 @@ exports.addEvent = [
             console.log(logMessage);
             res.send({msg: logMessage, id: newId});
         });
-        console.log('newId = ' + newId);
         let user = await User.findOne({"emailId": emailId});
         user.upvoted.push(newId);
         await user.save(function(err) {

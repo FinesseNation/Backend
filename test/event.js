@@ -21,7 +21,9 @@ describe("events", () => {
             "duration": "2 hrs",
             "postedTime": "2020-04-01 03:29:03.693069",
             "image": "",
-            "category": "Food"
+            "category": "Food",
+            "points": 1,
+            "numComments": 0
         };
         chai.request(server)
             .post("/api/food/addEvent")
@@ -29,7 +31,7 @@ describe("events", () => {
             .send(event)
             .end((err, res) => {
                 expect(res).to.have.status(200);
-                expect(res.text).to.equal("Success: added new event = Mocha Test Event");
+                expect(res.body.msg).to.equal("Success: added new event = Mocha Test Event");
                 done();
             });
     });
@@ -58,7 +60,9 @@ describe("events", () => {
             "duration": "2 hrs",
             "postedTime": "2020-04-01 03:29:03.693069",
             "image": "",
-            "category": "Food"
+            "category": "Food",
+            "points": 1,
+            "numComments": 0
         };
         chai.request(server)
             .post("/api/food/addEvent")
@@ -100,7 +104,9 @@ describe("events", () => {
             "duration": "2 hrs",
             "postedTime": "2020-04-01 03:29:03.693069",
             "image": "",
-            "category": "Food"
+            "category": "Food",
+            "points": 1,
+            "numComments": 0
         };
         chai.request(server)
             .post("/api/food/updateEvent")
@@ -125,7 +131,9 @@ describe("events", () => {
             "duration": "2 hrs",
             "postedTime": "2020-04-01 03:29:03.693069",
             "image": "",
-            "category": "Food"
+            "category": "Food",
+            "points": 1,
+            "numComments": 0
         };
         chai.request(server)
             .post("/api/food/updateEvent")
@@ -167,7 +175,9 @@ describe("events", () => {
             "duration": "2 hrs",
             "postedTime": "2020-04-01 03:29:03.693069",
             "image": "",
-            "category": "Food"
+            "category": "Food",
+            "points": 1,
+            "numComments": 0
         };
         chai.request(server)
             .post("/api/food/updateEvent")

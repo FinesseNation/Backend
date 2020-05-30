@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 describe("comments", () => {
     it("it should create a comment for an event", (done) => {
         let comment = {
-            "eventId": "5e83d7b01ed1c835cffc0f15",
+            "eventId": "5ece1abf1b3bbf0017bd5e3a",
             "emailId": "darko123@gmail.com",
             "comment": "TEST Amazing Event",
             "postedTime": "2020-04-01 03:29:03.693069"
@@ -19,7 +19,7 @@ describe("comments", () => {
 
     it("it checks for errors while creating a comment for an event", (done) => {
         let comment = {
-            "eventI": "5e83d7b01ed1c835cffc0f15",
+            "eventI": "5ece1abf1b3bbf0017bd5e3a",
             "emailI": "darko123@gmail.com",
             "commen": "TEST Amazing Event",
             "postedTime": "2020-04-01 03:29:03.693069"
