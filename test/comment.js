@@ -9,7 +9,7 @@ describe("comments", () => {
     it("it should create a comment for an event", (done) => {
         let comment = {
             "eventId": "5ece1abf1b3bbf0017bd5e3a",
-            "emailId": "darko123@gmail.com",
+            "emailId": "test",
             "comment": "TEST Amazing Event",
             "postedTime": "2020-04-01 03:29:03.693069"
         };
@@ -20,7 +20,7 @@ describe("comments", () => {
     it("it checks for errors while creating a comment for an event", (done) => {
         let comment = {
             "eventI": "5ece1abf1b3bbf0017bd5e3a",
-            "emailI": "darko123@gmail.com",
+            "emailI": "test",
             "commen": "TEST Amazing Event",
             "postedTime": "2020-04-01 03:29:03.693069"
         };

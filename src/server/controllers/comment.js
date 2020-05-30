@@ -33,8 +33,11 @@ exports.addComment = [
             "comment": comment,
             "postedTime": postedTime
         };
+        console.log('new comment from ' + emailId);
         if (emailId == 'test') {
+            console.log('adding date to comment from ' + emailId);
             commentjson.createdAt = new Date();
+            console.log('added date to comment ' + JSON.stringify(commentjson));
         }
         let newComment = new Comment(commentjson);
         var logMessage = "";
