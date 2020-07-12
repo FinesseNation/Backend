@@ -32,6 +32,10 @@ const mongoose = require("mongoose"),
         "downvoted": {
             "type": Array,
             "default" : []
+        },
+        "subscriptions": {
+            "type": Array,
+            "default" : []
         }
     });
 

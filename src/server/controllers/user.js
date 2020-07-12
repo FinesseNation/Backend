@@ -30,6 +30,7 @@ exports.signup = [
         const notifications = true;
         const upvoted = [];
         const downvoted = [];
+        const subscriptions = [];
 
         let user = await User.findOne({emailId});
         if (user) {
@@ -46,7 +47,8 @@ exports.signup = [
             points,
             notifications,
             upvoted,
-            downvoted
+            downvoted,
+            subscriptions
         });
 
         const salt = await bcrypt.genSalt(10);
@@ -304,7 +306,7 @@ exports.generatePasswordResetLink = [
                 pass: process.env.EMAIL_PASSWORD
             }
         });
-
+        
         const message = {
             from: "xXFinesseNationXx@gmail.com",
             to: emailId,

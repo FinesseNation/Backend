@@ -51,8 +51,9 @@ exports.addEvent = [
         });
         let user = await User.findOne({"emailId": emailId});
         user.upvoted.push(newId);
+        user.subscriptions.push(newId);
         await user.save(function(err) {
-            if(err) { console.log('error adding post to favorites = '+err); return next(err); }
+            if(err) { console.log('error adding post to upvoted - '+err); return next(err); }
             let logMessage = "Success: set votes for user = " + emailId;
             console.log(logMessage);
         });
