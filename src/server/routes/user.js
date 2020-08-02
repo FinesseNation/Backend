@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const userController = require('../controllers/user');
+const userController = require("../controllers/user");
 
 /**
  * @swagger
@@ -35,7 +35,7 @@ const userController = require('../controllers/user');
  *        400:
  *          description: Error on adding new user, user already exists, or input validation failed.
  */
-router.post('/signup', userController.signup);
+router.post("/signup", userController.signup);
 
 /**
  * @swagger
@@ -69,9 +69,11 @@ router.post('/signup', userController.signup);
  *        400:
  *          description: Error if user doesn't exist, incorrect password, or input validation failed.
  */
-router.post('/login', userController.login);
+router.post("/login", userController.login);
 
-router.post('/setVotes', userController.setVotes);
+router.post("/setVotes", userController.setVotes);
+
+router.get("/getLeaderboard", userController.getLeaderboard);
 
 /**
  * @swagger
@@ -105,7 +107,7 @@ router.post('/setVotes', userController.setVotes);
  *        400:
  *          description: Error if user doesn't exist or input validation failed.
  */
-router.post('/changeNotifications', userController.changeNotifications);
+router.post("/changeNotifications", userController.changeNotifications);
 
 /**
  * @swagger
@@ -137,7 +139,7 @@ router.post('/changeNotifications', userController.changeNotifications);
  *        400:
  *          description: User doesn't exist.
  */
-router.post('/deleteUser', userController.deleteUser);
+router.post("/deleteUser", userController.deleteUser);
 
 /**
  * @swagger
@@ -190,7 +192,7 @@ router.post('/deleteUser', userController.deleteUser);
  *        400:
  *          description: User doesn't exist.
  */
-router.post('/getCurrentUser', userController.getCurrentUser);
+router.post("/getCurrentUser", userController.getCurrentUser);
 
 /**
  * @swagger
@@ -222,7 +224,7 @@ router.post('/getCurrentUser', userController.getCurrentUser);
  *        400:
  *          description: User doesn't exist.
  */
-router.post('/checkEmailExists', userController.checkEmailExists);
+router.post("/checkEmailExists", userController.checkEmailExists);
 
 /**
  * @swagger
@@ -257,6 +259,9 @@ router.post('/checkEmailExists', userController.checkEmailExists);
  *        400:
  *          description: Failed to send email or failed validation check.
  */
-router.post('/generatePasswordResetLink', userController.generatePasswordResetLink);
+router.post(
+  "/generatePasswordResetLink",
+  userController.generatePasswordResetLink
+);
 
 module.exports = router;
