@@ -1,4 +1,6 @@
 const { body, validationResult } = require("express-validator");
+const axios = require('axios');
+
 const Event = require("../model/event");
 const User = require("../model/user");
 
@@ -69,6 +71,34 @@ exports.addEvent = [
       let logMessage = "Success: added new event = " + eventTitle;
       console.log(logMessage);
       res.send({ msg: logMessage, id: newId });
+
+      let content = {
+        'notification': {
+          'title': eventTitle,
+          'body': location,
+        },
+        'priority': 'high',
+        'data': {
+          'click_action': 'FLUTTER_NOTIFICATION_CLICK',
+          'status': 'done',
+          'id': newId,
+          'isNew': 'true',
+        },
+        'to': '/topics/NewFinesse',
+      };
+      let config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'key=' + process.env.FINESSE_SERVER_KEY,
+        }
+      };
+      axios.post('https://fcm.googleapis.com/fcm/send', content, config)
+        .then(function (response) {
+          console.log('sent notification', content.notification);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     });
     let user = await User.findOne({ emailId: emailId });
     user.upvoted.push(newId);
