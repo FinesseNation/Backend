@@ -64,7 +64,8 @@ exports.addComment = [
                         'click_action': 'FLUTTER_NOTIFICATION_CLICK',
                         'status': 'done',
                         'id': eventId,
-                        'isNew': 'false',
+                        'type': 'comment',
+                        'author': emailId
                     },
                     'to': '/topics/' + eventId,
                 };

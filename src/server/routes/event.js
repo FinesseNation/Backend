@@ -57,6 +57,8 @@ const eventController = require('../controllers/event');
  */
 router.get('/getEvents', eventController.getEvents);
 
+router.get('/getEvents/:eventId', eventController.getEvent);
+
 /**
  * @swagger
  * /api/food/addEvent:

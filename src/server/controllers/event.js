@@ -13,6 +13,19 @@ exports.getEvents = function (req, res) {
   });
 };
 
+exports.getEvent = function (req, res) {
+  let eventId = req.params.eventId;
+  console.log(eventId);
+  Event.findOne({_id: eventId}).exec(function (err, event) {
+    if (err) {
+      res.status(400).end();
+    }
+    else {
+      res.json(event);
+    }
+  });
+};
+
 exports.addEvent = [
   // Validate fields
   body("eventTitle", "Please enter a valid event title")
@@ -82,7 +95,8 @@ exports.addEvent = [
           'click_action': 'FLUTTER_NOTIFICATION_CLICK',
           'status': 'done',
           'id': newId,
-          'isNew': 'true',
+          'type': 'post',
+          'author': emailId
         },
         'to': '/topics/NewFinesse',
       };
