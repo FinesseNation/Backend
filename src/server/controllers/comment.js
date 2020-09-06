@@ -54,10 +54,12 @@ exports.addComment = [
                 console.log(logMessage);
                 res.send(logMessage);
 
+                let title = currEvent.eventTitle;
+                let body = emailId.split('@')[0] + ': ' + comment;
                 let content = {
                     'notification': {
-                        'title': currEvent.eventTitle,
-                        'body': emailId + ': ' + comment
+                        'title': title,
+                        'body': body
                     },
                     'priority': 'high',
                     'data': {
@@ -65,9 +67,11 @@ exports.addComment = [
                         'status': 'done',
                         'id': eventId,
                         'type': 'comment',
-                        'author': emailId
+                        'author': emailId,
+                        'title': title,
+                        'body': body
                     },
-                    'to': '/topics/' + eventId,
+                    'to': '/topics/' + eventId
                 };
                 let config = {
                     headers: {

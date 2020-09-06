@@ -30,9 +30,13 @@ const mongoose = require("mongoose"),
             "type": String,
             "required": false
         },
-        "postedTime": {
-            "type": String,
+        "startTime": {
+            "type": Date,
             "required": true
+        },
+        "endTime": {
+            "type": Date,
+            "required": false
         },
         "duration": {
             "type": String,
