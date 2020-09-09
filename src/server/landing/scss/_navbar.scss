@@ -5,7 +5,7 @@
     @include transition-all;
     @include heading-font;
     .navbar-brand {
-        color: $theme-primary;
+        color: #d3cfc9;
         @include heading-font;
         &:hover,
         &:focus {
@@ -23,7 +23,6 @@
                 font-size: 11px;
                 @include alt-font;
                 &.active {
-                    color: $theme-primary !important;
                     background-color: transparent;
                     &:hover {
                         background-color: transparent;

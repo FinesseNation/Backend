@@ -206,7 +206,7 @@ exports.getLeaderboard = function (req, res) {
           currentRank =
               leaderboard.findIndex((user) => user.emailId === currentEmail) + 1;
         }
-        leaderboard = leaderboard.slice(0, 10).filter((user) => user.points > 0);
+        leaderboard = leaderboard.slice(0, 10).filter((user) => user.points >= 0);
         res.json([currentRank, leaderboard]);
       }
     });

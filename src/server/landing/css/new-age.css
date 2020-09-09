@@ -89,7 +89,7 @@ section h2 {
 }
 
 #mainNav .navbar-brand {
-  color: #181A1B;
+  color: #d3cfc9;
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
   letter-spacing: 1px;
@@ -113,7 +113,6 @@ section h2 {
 }
 
 #mainNav .navbar-nav > li > a.active {
-  color: #181A1B !important;
   background-color: transparent;
 }
 
@@ -176,8 +175,8 @@ header.masthead {
   padding-top: 150px;
   padding-bottom: 100px;
   color: white;
-  background: url("../img/bg-pattern.png"), #7b4397;
-  background: url("../img/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
+  background: url("../img/bg-pattern.png"), #2d2d2d;
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #2d2d2d, #000000);
 }
 
 header.masthead .header-content {
@@ -304,7 +303,7 @@ section.features .feature-item i {
   font-size: 80px;
   display: block;
   margin-bottom: 15px;
-  background: linear-gradient(to left, #7b4397, #dc2430);
+  background: linear-gradient(to left, #000000, #868686);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

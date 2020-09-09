@@ -10,8 +10,6 @@ exports.getEvents = function (req, res) {
         if (err) {
             res.status(400).end();
         }
-        // listEvents.forEach((event) => event.startTime = )
-        console.log(listEvents);
         res.json(listEvents);
     });
 };

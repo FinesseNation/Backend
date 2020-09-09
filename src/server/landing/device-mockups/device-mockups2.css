@@ -314,30 +314,30 @@
 .device-mockup[data-device="iphone6_plus"] > .device,
 .device-mockup[data-device="iphone6_plus"][data-color="black"] > .device,
 .device-mockup[data-device="iphone6_plus"][data-orientation="portrait"][data-color="black"] > .device {
-	background-image: url("iphone_6_plus/iphone_6_plus_black_port.png");
+	background-image: url("nexus_6/nexus_6_port.png");
 }
 
 .device-mockup[data-device="iphone6_plus"][data-orientation="landscape"] > .device,
 .device-mockup[data-device="iphone6_plus"][data-orientation="landscape"][data-color="black"] > .device {
-	background-image: url("iphone_6_plus/iphone_6_plus_black_land.png");
+	background-image: url("nexus_6/nexus_6_land.png");
 }
 
 .device-mockup[data-device="iphone6_plus"][data-color="white"] > .device,
 .device-mockup[data-device="iphone6_plus"][data-orientation="portrait"][data-color="white"] > .device {
-	background-image: url("iphone_6_plus/iphone_6_plus_white_port.png");
+	background-image: url("nexus_6/nexus_6_port.png");
 }
 
 .device-mockup[data-device="iphone6_plus"][data-orientation="landscape"][data-color="white"] > .device {
-	background-image: url("iphone_6_plus/iphone_6_plus_white_land.png");
+	background-image: url("nexus_6/nexus_6_land.png");
 }
 
 .device-mockup[data-device="iphone6_plus"][data-color="gold"] > .device,
 .device-mockup[data-device="iphone6_plus"][data-orientation="portrait"][data-color="gold"] > .device {
-	background-image: url("iphone_6_plus/iphone_6_plus_gold_port.png");
+	background-image: url("nexus_6/nexus_6_port.png");
 }
 
 .device-mockup[data-device="iphone6_plus"][data-orientation="landscape"][data-color="gold"] > .device {
-	background-image: url("iphone_6_plus/iphone_6_plus_gold_land.png");
+	background-image: url("nexus_6/nexus_6_land.png");
 }
 
 .device-mockup[data-device="iphone6_plus"] > .device > .screen,
